@@ -1,20 +1,60 @@
 ---
 name: orchestrate
-description: End-to-end slide deck pipeline: retrieve content from the wiki, create slides, review and return. Use when asked to build a deck or create slides. Invoke with /orchestrate.
+description: End-to-end slide deck pipeline. Defaults to a context-gathering conversation before building anything. Only proceeds to slide creation once all required context is collected. Invoke with /orchestrate.
 disable-model-invocation: true
 ---
 
 # Orchestrate
 
-Runs three skills in sequence to produce a `.pptx` slide deck.
+Runs a context-gathering conversation, then produces a `.pptx` slide deck through a two-pass create-review loop.
 
-## Before starting
+## Default mode: Collect context first
 
-1. Confirm the topic with the user.
-2. Check that `knowledge/content/wiki/index.md` has relevant pages for the topic.
-   - If the wiki is empty or missing relevant content, check whether there are uningest PPTX files in `knowledge/content/raw/`.
-   - If there are, run the `ingest` skill first, then proceed.
-   - If `raw/` is also empty, ask the user to add source PPTX files to `knowledge/content/raw/` and ingest them before continuing.
+**Do not jump straight into slide creation.** Default to collecting context through conversation unless every item in the checklist below is already fully answered by what the user has said. When in doubt, ask — a slide deck built on vague direction wastes everyone's time.
+
+### Context checklist
+
+Work through these conversationally. Ask about multiple items at once where natural; do not interrogate the user one question at a time.
+
+| # | Item | What good looks like |
+|---|------|----------------------|
+| 1 | **Topic / purpose** | What is this deck about? What decision or action should it drive? |
+| 2 | **Audience** | Who is in the room? What do they already know? What do they care about? |
+| 3 | **Storyline / angle** | What is the core argument or narrative arc? What should the audience believe or do after seeing this? |
+| 4 | **Scope** | Roughly how many slides? Any sections or must-cover topics? Any explicit exclusions? |
+| 5 | **Tone** | Formal executive update, working session, external client, internal team? |
+| 6 | **Source material** | Which ingested sources are relevant? Any specific findings or data the user wants included? |
+
+### When to proceed without asking
+
+Only skip context-gathering and go straight to Phase 0 if all six items are unambiguously answered by the user's request. This will be rare — default to asking.
+
+### How to signal readiness
+
+Once context is collected, summarise it back to the user in a short brief before proceeding:
+
+```
+Here's what I'm building:
+
+Topic: <topic>
+Audience: <audience>
+Angle: <core argument>
+Scope: <n> slides, covering <sections>
+Tone: <tone>
+Sources: <list of wiki sources to draw from>
+
+Proceeding to build the deck — let me know if anything looks off.
+```
+
+Wait for the user to confirm or correct before moving to Phase 0.
+
+---
+
+## Phase 0 — Wiki check
+
+Check that `knowledge/content/wiki/index.md` has relevant pages for the confirmed topic and sources.
+- If relevant content is missing, check `knowledge/content/raw/` for uningest files and run the `ingest` skill first.
+- If `raw/` is also empty, ask the user to add source files before continuing.
 
 ## Phase 1 — Retrieve
 
