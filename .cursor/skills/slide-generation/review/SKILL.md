@@ -28,6 +28,8 @@ For each claim on each slide, verify it traces back to content retrieved in Phas
 - Overstates, hedges, or distorts what the source actually says
 - Uses weasel qualifiers ("may", "could potentially", "it is possible that") without sourced basis
 
+**Do not flag placeholder shapes** (grey rectangles with "PLACEHOLDER: ..." text). Placeholders are intentional and pre-approved via `outline.md` — the user will drop in the real visual afterwards.
+
 ## Step 3 — McKinsey language review
 
 Interrogate every slide as a tough editor would. The standard is high and the bar is exact. Check each of the following:
@@ -35,6 +37,13 @@ Interrogate every slide as a tough editor would. The standard is high and the ba
 **Top-down communication (impact first)**
 - The slide title must deliver the "so what" — the insight or conclusion, not a label or topic. "Revenue declined" is a label. "Revenue declined 18% YoY, driven by APAC churn" is a message.
 - If the title is a noun phrase or a neutral description, it is wrong. Rewrite it as a complete sentence that states the finding.
+
+**Horizontal logic (across slides)**
+- Read just the slide titles top-to-bottom. They must form a coherent pyramid-principle argument.
+- Each title should ladder up to the deck's overall thesis — typically stated on the executive summary slide near the front.
+- Flag titles that break the flow, repeat earlier points without adding new evidence, or introduce ideas with no logical bridge from what precedes them.
+- Flag the absence of a thesis-bearing top slide (executive summary or governing thought) for decks longer than ~3 slides.
+- Suggest a reordering or retitling if the argument doesn't track.
 
 **Parallel structure**
 - Every set of bullets on a slide must be grammatically parallel. If the first bullet starts with a verb, all must start with a verb. If the first is a noun phrase, all are noun phrases. Mixed structure is a failure.
