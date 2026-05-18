@@ -21,16 +21,25 @@ Runs three skills in sequence to produce a `.pptx` slide deck.
 Run the `retrieve` skill.  
 Reads from `knowledge/content/wiki/` and loads relevant content into context.
 
-## Phase 2 — Create
+## Phase 2a — Create (pass 1)
 
-Run the `create` skill.  
-Uses content from Phase 1 and the style template from `knowledge/style/` to build `slide-deck.pptx`.
+Run the `create` skill in **pass 1** mode.  
+Uses content from Phase 1 and the style template from `knowledge/style/` to build the first draft of `slide-deck.pptx`.
 
-## Phase 3 — Review
+## Phase 2b — Internal review
 
-Run the `review` skill.  
-Reads back `slide-deck.pptx`, verifies content, and returns the file path to the user.  
-If issues are found, ask the user whether to fix and re-run Phase 2.
+Run the `review` skill in **`internal`** mode.  
+Red-teams the first draft and produces a structured revision brief (must-fix and should-fix items with concrete suggested rewrites). Do not show anything to the user at this stage.
+
+## Phase 2c — Create (pass 2)
+
+Run the `create` skill in **pass 2** mode, with the revision brief from Phase 2b in context.  
+The creator applies every must-fix and should-fix item and regenerates `slide-deck.pptx`.
+
+## Phase 3 — Final check
+
+Run the `review` skill in **`final`** mode.  
+Presents the full quality report to the user. If zero must-fix issues remain, return the file path without asking. If must-fix issues remain, list them and ask the user whether to do another pass or accept the deck as-is.
 
 ---
 
