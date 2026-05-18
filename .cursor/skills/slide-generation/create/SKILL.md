@@ -19,15 +19,74 @@ This skill is called twice by orchestrate:
 
 ## Pass 1 — First draft
 
-1. Read `work/sessions/<slug>/outline.md` — this is the contract. The slide list, titles, body summaries, and visual placeholders have already been agreed with the user in Phase 1.5. Do not invent additional slides or change the structure.
-2. Identify the style template in `knowledge/style/` (the `.pptx` file there).
-3. Draft the full slide content before writing any code. For each slide in the outline, expand the one-line body summary into the final title and bullet text. Apply McKinsey communication standards (see below) at this stage — it is far easier to fix language before the PPTX is built than after.
-4. Write and run a Python script using `python-pptx` that:
-   - Opens the template: `Presentation("knowledge/style/<template>.pptx")`
-   - Inspects available slide layouts: `prs.slide_layouts`
-   - For each slide: picks the appropriate layout, adds a slide, sets title and body text
-   - For each slide where the outline specifies `Visual: placeholder: <description>`, inserts a grey-box placeholder (see "Visuals" section below)
-   - Saves to `work/sessions/<slug>/slide-deck.pptx`
+1. **Read the style wiki.** Read `knowledge/style/wiki/index.md`, then read all five pages in full:
+   - `layout-patterns.md` — which layout to use for which slide type, placeholder conventions
+   - `titles-by-phase.md` — real title examples from good McKinsey decks, by deck phase
+   - `structure-patterns.md` — reusable structural sequences (proposal arc, diagnostic sequence, etc.)
+   - `style-ai-data-readiness.md` — example deliverable deck
+   - `style-faf-p2.md` — example proposal deck
+   
+   These are your few-shot examples. Draft your slides to match this standard.
+
+2. **Read the outline.** Read `work/sessions/<slug>/outline.md` — this is the structural contract. The slide list, titles, body summaries, and visual placeholders have been agreed with the user. Do not add slides or change the structure.
+
+3. **Draft content before writing code.** For each slide in the outline, expand the one-line body summary into the final title and bullet text. Apply McKinsey communication standards (below) and the style wiki patterns at this stage.
+
+4. **Write and run a Python script** using `python-pptx`:
+   - Template: `Presentation("knowledge/style/One Firm Template.pptx")` — always use this file
+   - For each slide: use the **layout selection guide** below to pick the correct layout index
+   - Set title, subtitle (if applicable), and body text from the drafted content
+   - Populate the **on-page tracker** placeholder on every slide (see below)
+   - For slides where the outline specifies `Visual: placeholder: <description>`, insert a grey-box placeholder (see "Visuals" section)
+   - Populate the **Title-slide placeholders** for the cover (see below)
+   - Save to `work/sessions/<slug>/slide-deck.pptx`
+
+### Layout selection guide
+
+| Slide type | Layout name | Index |
+|-----------|-------------|-------|
+| Cover | Title | 0 |
+| Standard content (default) | Default | 1 |
+| Section divider | Section | 4 |
+| Agenda / section tracker | 1/4 | 6 |
+| Two-column comparison | 1/2 | 8 |
+| Opening context slide | 2/3 | 9 |
+| Verbatim quote | Quote | 5 |
+| Closing slide | End | 13 |
+
+When in doubt, use Default (1) — it is the workhorse of the template.
+
+### On-page tracker
+
+Every layout except Title (0) and End (13) has a placeholder named `1. On-page tracker`. Always populate it:
+- Single-section deck: section or topic name (e.g. "Market analysis")
+- Multi-section deck: all sections listed, current one in bold (e.g. "Context | **Approach** | Recommendations")
+
+```python
+for ph in slide.placeholders:
+    if "tracker" in ph.name.lower():
+        ph.text_frame.text = tracker_text
+        break
+```
+
+### Title-slide placeholder handling (cover only)
+
+For the cover slide (Title layout, index 0), populate:
+- `Title` → deck title from the brief
+- `Subtitle` → document type + date (e.g. "Discussion document\nMay 2026")
+- `Documenttype` → document type string from the brief (e.g. "Discussion document")
+- `ClientLogo` → leave empty unless client name is specified in the brief
+
+```python
+for ph in slide.placeholders:
+    name = ph.name
+    if name == "Title":
+        ph.text_frame.text = brief_title
+    elif name == "Subtitle":
+        ph.text_frame.text = f"{brief_doc_type}\n{brief_date}"
+    elif name == "Documenttype":
+        ph.text_frame.text = brief_doc_type
+```
 
 ## Pass 2 — Revision
 
@@ -101,4 +160,4 @@ Size and position the placeholder to fit the slide's available content area. If 
 
 - Only use content retrieved in Phase 1 — do not add facts.
 - No speaker notes.
-- If `python-pptx` is not installed: `pip install python-pptx`
+- If `python-pptx` is not installed: `py -m pip install python-pptx`

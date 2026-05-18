@@ -12,12 +12,17 @@ alwaysApply: true
 | Wiki catalog | `knowledge/content/wiki/index.md` |
 | Wiki timeline | `knowledge/content/wiki/log.md` |
 | Wiki schema / conventions | `knowledge/content/SCHEMA.md` |
-| Style / template (PPTX) | `knowledge/style/` |
+| Style template (PPTX, immutable) | `knowledge/style/One Firm Template.pptx` |
+| Style example decks (immutable) | `knowledge/style/examples/` |
+| Style wiki (LLM-maintained) | `knowledge/style/wiki/` |
+| Style wiki index | `knowledge/style/wiki/index.md` |
 | Output | `work/sessions/<YYYY-MM-DD-topic-slug>/slide-deck.pptx` |
 
 ## Non-negotiables
 
 - All slide content must originate from source files in `knowledge/content/raw/`. Do not invent facts.
+- Run `/ingest_style` on any new example deck added to `knowledge/style/examples/` before it influences generation.
+- The style wiki (`knowledge/style/wiki/`) is LLM-maintained — read it before every `create` run.
 - The wiki in `knowledge/content/wiki/` is the compiled content layer — the LLM writes and maintains it; humans read it.
 - Raw source files are immutable — the LLM reads them during ingest but never modifies them.
 - A source file must be ingested (via the `ingest` skill) before its content appears in the wiki and can be used for slide generation.

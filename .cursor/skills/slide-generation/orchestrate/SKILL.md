@@ -35,6 +35,8 @@ Work through these conversationally — batch related questions where natural; d
 | 4 | **Scope** | Roughly how many slides? Any sections or must-cover topics? Any explicit exclusions? |
 | 5 | **Tone** | Formal executive update, working session, external client, internal team? |
 | 6 | **Source material** | Which ingested sources are relevant? Any specific findings or data to include? |
+| 7 | **Document type** | "Discussion document", "Working session", "Steering committee read-out", "Proposal", etc. |
+| 8 | **Client name** (optional) | For the cover slide — leave blank if internal or if client shouldn't be named |
 
 ### Step 3 — Confirm and persist
 
@@ -49,6 +51,8 @@ Angle: <core argument>
 Scope: <n> slides, covering <sections>
 Tone: <tone>
 Sources: <list of wiki sources>
+Document type: <doc type>
+Client: <client name or "internal">
 
 Look right?
 ```
@@ -72,6 +76,8 @@ topic: <topic>
 **Scope**: <n> slides, covering <sections>
 **Tone**: <tone>
 **Sources**: <list of wiki sources>
+**Document type**: <e.g. Discussion document, Working session, Proposal>
+**Client name**: <client name or blank>
 ```
 
 ## Phase 1 — Retrieve

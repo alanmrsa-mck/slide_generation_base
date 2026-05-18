@@ -10,3 +10,4 @@ work/
 # LLM-maintained wiki pages
 # SKILL.md, SCHEMA.md, and other hand-authored .md files are NOT ignored
 knowledge/content/wiki/
+knowledge/style/wiki/
