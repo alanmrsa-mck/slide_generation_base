@@ -8,7 +8,7 @@ This document governs how the LLM maintains the wiki in `knowledge/content/wiki/
 
 ```
 knowledge/content/
-├── raw/            ← PPTX source files (immutable)
+├── raw/            ← Source files (immutable): .pptx, .pdf, .docx, .txt
 ├── wiki/
 │   ├── index.md   ← catalog of all wiki pages
 │   ├── log.md     ← append-only operation timeline
@@ -22,7 +22,7 @@ knowledge/content/
 
 | Type | Naming convention | Purpose |
 |------|-------------------|---------|
-| Source summary | `source-<slug>.md` | One page per ingested PPTX; summarises its slides |
+| Source summary | `source-<slug>.md` | One page per ingested source file; summarises its content |
 | Topic | `topic-<slug>.md` | Synthesis of a subject across multiple sources |
 | Entity | `entity-<slug>.md` | A named person, organisation, product, or place |
 | Concept | `concept-<slug>.md` | A recurring idea, framework, or term |
@@ -40,7 +40,7 @@ Every wiki page must begin with a YAML frontmatter block:
 ---
 title: <human-readable title>
 type: source-summary | topic | entity | concept | overview
-sources: [<source-slug>, ...]   # PPTX files this page draws from
+sources: [<source-slug>, ...]   # source files this page draws from
 updated: <YYYY-MM-DD>
 ---
 ```
@@ -86,11 +86,11 @@ Example entry:
 
 ## Ingest workflow
 
-When ingesting a PPTX from `raw/`:
+When ingesting a source file from `raw/` (`.pptx`, `.pdf`, `.docx`, or `.txt`):
 
 1. Read `SCHEMA.md` (this file).
-2. Extract all slide text from the PPTX using python-pptx.
-3. Write a `source-<slug>.md` summary page covering each slide's key points.
+2. Extract all text using the appropriate library for the file format.
+3. Write a `source-<slug>.md` summary page covering the key content.
 4. Identify entities and concepts mentioned; update or create their pages.
 5. Identify relevant topic pages; update them to incorporate the new source.
 6. If no `overview.md` exists, create one; otherwise update it.
@@ -126,6 +126,6 @@ Periodically, health-check the wiki:
 ## Guardrails
 
 - The LLM writes and maintains all wiki pages. Humans read them.
-- Raw PPTX files in `raw/` are never modified.
-- Do not invent facts. All claims must trace back to a source in `raw/`.
-- Every wiki page must have frontmatter with `sources` listing the PPTX files it draws from.
+- Raw source files in `raw/` are never modified.
+- Do not invent facts. All claims must trace back to a source file in `raw/`.
+- Every wiki page must have frontmatter with `sources` listing the source files it draws from.

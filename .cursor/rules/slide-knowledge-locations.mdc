@@ -7,7 +7,7 @@ alwaysApply: true
 
 | What | Path |
 |------|------|
-| Raw source files (PPTX, immutable) | `knowledge/content/raw/` |
+| Raw source files (.pptx/.pdf/.docx/.txt, immutable) | `knowledge/content/raw/` |
 | Wiki (LLM-maintained markdown) | `knowledge/content/wiki/` |
 | Wiki catalog | `knowledge/content/wiki/index.md` |
 | Wiki timeline | `knowledge/content/wiki/log.md` |
@@ -17,9 +17,9 @@ alwaysApply: true
 
 ## Non-negotiables
 
-- All slide content must originate from PPTX files in `knowledge/content/raw/`. Do not invent facts.
+- All slide content must originate from source files in `knowledge/content/raw/`. Do not invent facts.
 - The wiki in `knowledge/content/wiki/` is the compiled content layer — the LLM writes and maintains it; humans read it.
-- Raw PPTX files are immutable — the LLM reads them during ingest but never modifies them.
-- A PPTX must be ingested (via the `ingest` skill) before its content appears in the wiki and can be used for slide generation.
+- Raw source files are immutable — the LLM reads them during ingest but never modifies them.
+- A source file must be ingested (via the `ingest` skill) before its content appears in the wiki and can be used for slide generation.
 - If content for a topic is missing from the wiki, tell the user — do not fill the gap.
 - Output is always a `.pptx` file. No intermediate files.

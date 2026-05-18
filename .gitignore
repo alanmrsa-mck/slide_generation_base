@@ -1,5 +1,8 @@
-# PowerPoint files (raw sources and generated output)
+# Raw source files and generated output
 *.pptx
+knowledge/content/raw/*.pdf
+knowledge/content/raw/*.docx
+knowledge/content/raw/*.txt
 
 # LLM-maintained wiki pages
 # SKILL.md, SCHEMA.md, and other hand-authored .md files are NOT ignored
