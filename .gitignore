@@ -1,8 +1,11 @@
-# Raw source files and generated output
-*.pptx
+# Raw source files (immutable, not for version control)
+knowledge/content/raw/*.pptx
 knowledge/content/raw/*.pdf
 knowledge/content/raw/*.docx
 knowledge/content/raw/*.txt
+
+# Generated output
+work/
 
 # LLM-maintained wiki pages
 # SKILL.md, SCHEMA.md, and other hand-authored .md files are NOT ignored
