@@ -38,6 +38,11 @@ Interrogate every slide as a tough editor would. The standard is high and the ba
 - The slide title must deliver the "so what" — the insight or conclusion, not a label or topic. "Revenue declined" is a label. "Revenue declined 18% YoY, driven by APAC churn" is a message.
 - If the title is a noun phrase or a neutral description, it is wrong. Rewrite it as a complete sentence that states the finding.
 
+**Sentence case (no Title Case)**
+- Titles, section headers, and other heading-style text must be in sentence case — only the first word and proper nouns capitalized.
+- Flag any title written in Title Case (every major word capitalized). This is a hard rule, not a preference.
+- Example flag: "Revenue Fell 18% YoY, Driven By APAC Churn" → "Revenue fell 18% YoY, driven by APAC churn"
+
 **Horizontal logic (across slides)**
 - Read just the slide titles top-to-bottom. They must form a coherent pyramid-principle argument.
 - Each title should ladder up to the deck's overall thesis — typically stated on the executive summary slide near the front.

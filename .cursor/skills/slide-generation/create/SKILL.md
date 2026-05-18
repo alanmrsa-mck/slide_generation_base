@@ -48,6 +48,11 @@ Write every slide title as a complete sentence that states the insight or conclu
 - Wrong: "Revenue Performance"
 - Right: "Revenue fell 18% YoY, driven by APAC churn"
 
+**Sentence case (no Title Case)**
+McKinsey uses sentence case in slide titles, not Title Case. Capitalize only the first word and proper nouns. The same rule applies to section headers and any heading-style text on a slide.
+- Wrong: "Revenue Fell 18% YoY, Driven By APAC Churn"
+- Right: "Revenue fell 18% YoY, driven by APAC churn"
+
 **Parallel structure**
 Every set of bullets on a slide must share the same grammatical form. Choose one form (verb-led, noun phrase, etc.) and hold it across all bullets on that slide, and across all titles within a section.
 
