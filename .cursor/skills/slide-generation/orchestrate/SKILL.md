@@ -31,3 +31,9 @@ Uses content from Phase 1 and the style template from `knowledge/style/` to buil
 Run the `review` skill.  
 Reads back `slide-deck.pptx`, verifies content, and returns the file path to the user.  
 If issues are found, ask the user whether to fix and re-run Phase 2.
+
+---
+
+## Standalone utility: Lint
+
+The `lint` skill is not part of the deck generation pipeline but can be run at any time to health-check the wiki. Use it after several ingests or whenever wiki quality is in question. Invoke with `/lint`.
