@@ -1,0 +1,45 @@
+---
+description: Never save outputs to SharePoint / OneDrive client folders — always save locally in the workspace
+alwaysApply: true
+---
+
+# Local saves only — never to SharePoint
+
+Treat any path under a synced SharePoint / OneDrive **client** workspace as **read-only**. Read inputs from there; never write outputs back.
+
+## What counts as "SharePoint"
+
+Any path containing a client SharePoint document library, e.g.:
+
+- `…\OneDrive - McKinsey & Company\<engagement> - <client> - <site> - Documents\…`
+- `…\OneDrive - McKinsey & Company\2026 CMCSA - Cable - Documents\…`
+
+The local workspace root (`…\Documents\cursor_comcast\slide_generation_base\…`) is **not** SharePoint even though it sits under OneDrive — it's the local repo and is the correct write target.
+
+## Where to save outputs
+
+Always write to the local workspace:
+
+- Session deliverables → `work/sessions/<YYYY-MM-DD-topic-slug>/`
+- Raw source files brought in for ingest → `knowledge/content/raw/`
+- Wiki pages → `knowledge/content/wiki/`
+- Final slide outputs → `work/sessions/<YYYY-MM-DD-topic-slug>/slide-deck.pptx`
+
+If the user wants the file mirrored to a SharePoint folder, ask first and confirm the path — do not assume.
+
+## Examples
+
+❌ BAD — writing a mapped workbook directly into the client SharePoint folder without asking:
+
+```python
+out = r"C:\Users\Alan Ma\OneDrive - McKinsey & Company\2026 CMCSA - Cable - Documents\…\mapping.xlsx"
+wb.save(out)
+```
+
+✅ GOOD — write to the local session folder, then ask before mirroring:
+
+```python
+out = SESSION / "mapping.xlsx"
+wb.save(out)
+# Mirror to SharePoint only if explicitly requested by the user.
+```

@@ -13,17 +13,19 @@ This is the style-layer mirror of the `ingest` skill. The key difference: conten
 ## Before starting
 
 1. Confirm which file to ingest (ask the user if not specified).
-2. Check that the file exists in `knowledge/style/examples/`. If not, ask the user to place it there first.
+2. Check that the file exists in `knowledge/style/examples/`. **Do not use the Glob tool to list examples/ — use Shell `ls` instead.** Glob silently drops filenames containing brackets (e.g. `[sticky] ...`).
+3. **Never use a `[sticky]`-prefixed file for style ingest.** Sticky-annotated versions contain free-floating text boxes that pollute the layout/placeholder analysis. Always use the clean (non-sticky) version of the deck.
+4. If the file throws `PermissionError` when Python opens it, it is an OneDrive cloud-only placeholder. Ask the user to sync the file locally before proceeding.
 
 ## Step 1 — Extract deck structure
 
-Write and run a Python script using `python-pptx` to extract the structural metadata from every slide:
+Write and run a Python script using `python-pptx` to extract the structural metadata from every slide. Use an absolute raw-string path — relative paths with spaces or brackets in the filename may fail:
 
 ```python
 from pptx import Presentation
 from pptx.util import Emu
 
-path = "knowledge/style/examples/<filename>.pptx"
+path = r"<absolute path to file>.pptx"
 prs = Presentation(path)
 
 print(f"Slide size: {Emu(prs.slide_width).inches:.2f} x {Emu(prs.slide_height).inches:.2f} in")
@@ -234,5 +236,7 @@ Add rows to `knowledge/style/wiki/index.md` for every new or updated page.
 
 - Never modify files in `knowledge/style/examples/` or `knowledge/style/One Firm Template.pptx`.
 - Record only structural and stylistic observations — do not record client-confidential content from example decks.
+- Never ingest a `[sticky]`-prefixed file for style — sticky shapes pollute the placeholder and layout analysis. Use the clean version only.
 - If the file has already been ingested (`style-<slug>.md` exists), ask the user whether to re-ingest (overwrite) or skip.
-- If `python-pptx` is not installed: `py -m pip install python-pptx`
+- If `python-pptx` is not installed: `python -m pip install python-pptx`
+- If the file throws `PermissionError`, it is an OneDrive cloud-only placeholder — ask the user to sync it locally first.

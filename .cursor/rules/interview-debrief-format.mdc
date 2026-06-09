@@ -1,0 +1,45 @@
+---
+description: Format for interview/meeting debriefs — bucketed takeaways with topline insights and supporting sub-bullets
+alwaysApply: false
+---
+
+# Interview / meeting debrief format
+
+When asked to debrief or distill an interview or meeting transcript into takeaways, use this structure. It is the format converged on for the Kevin Rhatigan debrief and should be the default going forward.
+
+## Structure
+
+- **At most 5 buckets.** McKinsey-standard. If there seem to be more than 5, consolidate related themes (e.g., fold "delivery modernization" into "development cycle" if both describe how the SDLC runs). Never exceed 5.
+- **Each bucket topline is one finding stated as a plain sentence** — a complete, standalone insight, not a category label and not a bold tagline.
+  - No bold lead phrase. The whole bullet is the finding (see "No taglines" in `mck-writing-style`).
+  - Good: "Development cycles are dominated by non-development time, with only ~1.5 of 8 months in real SDLC work"
+  - Bad (label): "Delivery and SDLC"
+  - Bad (tagline): "**Cycles are slow**, only ~1.5 of 8 months is real dev"
+- **Sub-bullets carry the supporting evidence** under each topline: quantified data points, mechanisms, and examples.
+- **Buckets must be MECE.** Do not mix a workforce point under an architecture topline, etc. Each sub-bullet must actually support its topline.
+- **Next steps** go in their own short section at the end, only when an explicit owner or timeline was stated. Never invent them.
+- **Open items line** at the very bottom for unresolved questions with no owner/timeline:
+  `*N open items not captured above (no owner/timeline aligned on in the meeting): <comma-separated list>*`
+
+## Content rules
+
+- **Keep it observational and diagnostic, not opinionated.** Capture what is objectively true about the current state (facts, mechanisms, data, structural problems). Do not over-capture the interviewee's personal opinions, aspirations, pitches, or hypotheses. If a strong personal view is essential context, attribute it briefly rather than presenting it as a finding.
+  - Good (diagnostic): "Development cycles are dominated by non-development time (e.g., ~1.5 of 8 months is SDLC work)"
+  - Avoid (opinionated): "Transformation must be holistic" — that is the speaker's thesis, not an observation
+- **Lead with the insight, not the symptom.** State the "so what," then evidence the detail. (e.g., "Architecture consolidation is only organizational so far" leads; "7-8 API calls" supports.)
+- **Ground every point in the transcript.** No facts from memory or inference.
+- **Define names and acronyms inline** so a cold reader understands (e.g., "Resi 2.0 (Mike Crisafulli's reorg)", "FLOW", "CIEC (offshore)").
+- **Include quantified data points** wherever the source gives them (percentages, headcounts, cycle times, ratios).
+- **Use inline examples** with `(e.g., ...)` rather than separate "example" bullets where it reads cleanly.
+
+## Style
+
+- Sentence case throughout (first word and proper nouns only).
+- No em dashes, no arrows. Use commas, colons, or short clauses.
+- No weasel words; state what was said.
+- Pithy — cut filler.
+
+## Output + saving
+
+- This is a "significant output," so save it as markdown in a dated session folder per `session-markdown-outputs`, and state the path in chat.
+- When iterating, save successive versions (v2, v3, ...) in the same session folder rather than overwriting, so the user can compare.

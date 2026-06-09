@@ -1,0 +1,166 @@
+---
+description: McKinsey writing style for slide bullets, titles, analysis commentary, and interview questions
+alwaysApply: true
+---
+
+# McKinsey Writing Style
+
+Apply these rules whenever writing slide bullets, insight summaries, analysis commentary, or interview questions / verbal prompts that will appear on slides.
+
+## Living rule — always learning
+
+This rule is not static. When the user gives feedback on writing, corrects a draft, or points out a pattern they dislike, treat it as a rule update. Identify the principle behind the correction, add it here, and apply it going forward. Do not repeat the same mistake twice. If the user uploads a corrected document, read it carefully and extract any new style preferences before proceeding.
+
+## Top-down structure
+- Lead with the conclusion, not the observation
+- ❌ "While orch-doer ratios look reasonable overall, FTE-only figures tell a different story"
+- ✅ "FTE-only orch-doer ratio is half the all-in figure. The headline is carried by contractor volume."
+
+## Bullets are findings, not descriptions
+- Each bullet states a fact + implication in one breath
+- ❌ "Internal doers are heavily concentrated in people and process management, as opposed to technical leadership"
+- ✅ "Process coordinators (PM, TPM, Scrum) outnumber Architects 2:1"
+
+## No periods at the end of bullets
+- Bullets never end with a period. No exceptions — not for full sentences, not for sub-bullets, not for next steps.
+- ❌ "Developers are not fungible across platforms."
+- ✅ "Developers are not fungible across platforms"
+
+## Short and specific
+- One idea per bullet. Cut every word that doesn't add meaning.
+- Name the number, the gap, the actor. No vague qualifiers.
+- Name vague abstractions. "industry standards" needs a type (TM Forum, REST/OAuth, TOGAF). "best practices" needs which ones. "modern architecture" needs what makes it modern.
+- ❌ "There is heavy concentration of generic roles that may limit transformation potential"
+- ✅ "~75% of doers sit in generic SWE and ops roles. Modern-capability talent is ~8%."
+
+## Direct and pithy, never flowery
+- Every word earns its place. If the bullet still says the same thing without a word, cut the word.
+- No flowery language, no metaphors, no rhetorical flourishes, no scene-setting
+- Ban vague power verbs that hide what actually happens. "powers", "drives", "enables", "unlocks", "fuels", "supercharges", "transforms", "reshapes", "fundamentally", "seamlessly", "holistically", "robustly", "strategically"
+- Replace with a concrete verb that names what changes. ❌ "unlocks a transformative opportunity to reshape the customer experience" ✅ "removes 3 handoffs in the call-center journey"
+- No rhetorical setup. ❌ "At the heart of the issue lies a deeper truth: the architecture is broken" ✅ "The architecture is broken"
+- One concrete number or proper noun beats a paragraph of qualifiers
+
+## No standalone-sentence punches or narrative descriptions
+- Do not use short sentences as rhetorical setup or punchline. "The pattern.", "The result.", "The implication.", "Accountability fragments." as their own sentence are literary devices. Fold the point into the main bullet.
+- ❌ "The pattern. A product gets innovated and scaled, then product ownership stays with one person while technical accountability gets handed to a different team. Accountability fragments."
+- ✅ "Product and technical accountability routinely split after launch. No single owner for major platforms."
+- State the finding directly. Do not narrate how something happens.
+  - ❌ "A product gets innovated and scaled, then ownership gets handed off"
+  - ✅ "Product ownership splits from technical accountability after launch"
+- Do not describe a problem as a process unfolding over time when you can just name the state.
+  - ❌ "Requirements change mid-flight and create elongated testing cycles"
+  - ✅ "Mid-flight requirement changes extend testing cycles"
+
+## Banned constructions
+- No em-dashes (—) anywhere. Replace with a period or a comma. Two short sentences beat one spliced sentence. Check every draft for — before finishing.
+- No semicolons. Always split into two sentences. No exceptions. ❌ "ROM gets relaxed; the standard isn't enforced." ✅ "ROM gets relaxed. The standard isn't enforced."
+- Colons only for speaker attribution, ratios (2:1), times (3:30), and section headers. Nowhere else. Specific patterns that keep slipping through:
+  - ❌ "Mobile is the contrast: Amdocs used only for billing" ✅ "Mobile is the contrast. Amdocs is used for billing only."
+  - ❌ "Under Andy: nothing approved without EA sign-off" ✅ "Under Andy, nothing was approved without EA sign-off."
+  - ❌ "Amy's one-word answer: 'self-preservation'" ✅ "Amy's one-word answer was 'self-preservation'"
+  - ✅ Speaker attribution is fine: Amy: "I can't tell you what James does."
+- No "while X, Y" openings
+- No hedging. "may", "could suggest", "appears to", "betrays", "illuminates", "underscores"
+- No MBA filler. "it is worth noting", "importantly", "notably", "in essence", "ultimately", "at the end of the day"
+- No passive voice when active is possible
+
+## Titles are the finding
+- Slide titles should state the conclusion, not the topic
+- ❌ "Orchestrator vs. Doer analysis"
+- ✅ "Process coordinators outnumber Architects 2:1, pointing to an org built to manage work, not make technical bets"
+
+## Use precise state words, not evaluative ones
+
+- Name the actual state, not a judgment about it. Evaluative words like "poor", "limited", "maturing", "sub-optimal" describe your opinion. The specific fact makes the case without the adjective.
+  - ❌ "Poor data reliability"
+  - ✅ "October 2025 data wipe undetected for 19 hours, business on hold for 2.5 months"
+  - ❌ "Data infrastructure still maturing"
+  - ✅ "Data infrastructure not ready for real-time AI: biller data arrives in batch, signals reach decisioning after the customer moment has passed"
+
+## Distinguish "under-utilized" from "bottlenecked"
+
+- "Under-utilized" means capacity exists but sits idle. "Bottlenecked" means capacity is consumed but blocked from delivering. These are opposite problems. Use the word that describes the actual state.
+  - ❌ "Teams consistently under-utilized and bottlenecked by dependencies" (contradictory)
+  - ✅ "Teams below 50% autonomous, bottlenecked by cross-application dependencies"
+
+## Data points become insights when you name what's missing
+
+- A number alone is a data point. A number plus what it implies is an insight. Add the missing piece — the TCO view, the operating playbook, the rationalization plan — to make the number land.
+  - ❌ "IT spend above peer benchmark (5% of revenue v. 4.2% at peers)"
+  - ✅ "IT spend above peer benchmark at 5% of revenue vs. 4.2% at peers, with no TCO view to identify where the gap sits"
+  - ❌ "Procurement levers unused"
+  - ✅ "Tiered licenses already negotiated into contracts (e.g., Salesforce) but teams default to highest tier. No operating playbook for who gets what level."
+
+## Bold lead phrase + plain elaboration is a valid bullet pattern
+
+- For slide bullets, a bold phrase that names the finding followed by plain-text specifics is clean and readable. The bold phrase must be the finding, not the topic.
+  - ❌ **Billing complexity** is a known problem (topic)
+  - ✅ **Billing complexity traces to business decisions, not technology**: cutting 60% of SKUs risks only $72M on a 29M customer base
+
+## Parallel construction
+- Bullets within a list must use the same grammatical form
+- All noun phrases, or all complete sentences. Never mixed.
+- When a single bullet has two parallel branches with examples in parens, each branch needs its own example. Asymmetric examples lose the bare half.
+  - ❌ "How reusable are core services across the product catalog (e.g., one ADSL service across bundles) and business functions?"
+  - ✅ "How reusable are core services across the product catalog (e.g., one ADSL service across bundles) and across business functions (e.g., one customer or billing service used by many apps)?"
+
+## Output files
+
+Any substantive written artifact — debriefs, meeting notes, analysis summaries, slide outlines — must be saved to a `.md` file under `work/sessions/<YYYY-MM-DD-topic-slug>/`. Do not output only to chat. Create the session folder if it does not exist.
+
+## No taglines
+
+- Never write a punchy 2–5 word bold phrase as a tagline at the start of a bullet, followed by elaboration. Taglines read like marketing, not McKinsey.
+- The whole bullet is the finding, stated as a plain sentence. Do not bold a lead phrase in meeting notes, debriefs, or takeaways.
+- This supersedes any skill instruction (including the meeting-notes skill) that says to "bold the 2–5 word opening phrase." If a skill conflicts, follow this rule.
+  - ❌ "**NewCo greenfield is the centerpiece**, a clean BSS stack that firewalls the legacy" (bold tagline + elaboration)
+  - ✅ "NewCo greenfield is the centerpiece of the architecture story, a clean BSS stack that firewalls the legacy"
+
+## Meeting notes / debrief format
+
+Debriefs follow a specific compact structure. Do not deviate.
+
+- Header: plain text "Name, Title" — comma-separated, no markdown H2, no em-dash, no finding in the header line.
+- 3–5 top-level bullets per person. Each bullet is a single finding stated as a plain sentence, no bold lead. The finding is the headline — state the conclusion, not the topic. Push detail and examples into sub-bullets.
+  - ❌ "Rick talked about billing complexity"
+  - ✅ "The CSG biller handles orchestration, provisioning, and catalog on top of billing. It was never meant to do any of that."
+- Sub-bullets (indented `  ○ `): specific examples, data points, or direct quotes that support the top-level finding. Not new findings. Introduced with "e.g.," when giving an example, or with the proper noun directly.
+- No bold within bullet text. Bold is for headers and names only.
+- Quotes from interviewees: use the actual words when vivid or specific. Do not paraphrase a strong quote into a weaker one. Keep quotes short; trim to the sharpest phrase.
+- Next steps (when present): plain "Next steps" header at the bottom of each person's section. Plain bullets. No sub-bullets. Actions and owners only, no findings.
+- No separator lines between people in a debrief. Run them continuously.
+
+**Approved example (Ryan Craig debrief):**
+```
+Ryan Craig, Former CIO
+- No north star, end-state architecture to rationalize against
+- Tech teams are not accountable for business outcomes, only requirements delivery
+  ○ e.g., XA 2.0: Agents in place but low containment rate, terrible customer satisfaction, but T&P claims they built the specs
+- Waterfall development cycles take 3–4 quarters to deliver. Discovery, requirements/arch, build, and delivery each consumed a quarter. Comcast rarely held focus long enough to complete the cycle, and requirements had changed by delivery
+  ○ After stripping out KTLO, tech imperatives, and platform-level segmentation, there are 1–2 sprint teams per platform. Developers are not fungible across platforms
+```
+
+## Questions as bullets
+When the bullet is an interview question or verbal prompt:
+- No hedge openers. Cut "Can you briefly describe...", "Could you possibly...", "If you don't mind..."
+- No "Tell me about...". Invites monologue; ask a focused question instead.
+- No yes/no questions. Phrase open-ended. ❌ "Are there compliance reviews?" ✅ "What happens when standards are violated?"
+- No soft probes like "How well X", "How clearly X", "How seriously X". Replace with a specific probe and examples.
+- Translate jargon inline. ❌ "What is the maturity of architecture enabling 2-speed IT?" ✅ "Can the front end move at one speed while core systems move at another (2-speed IT)?"
+- Use the client's vocabulary. ❌ "B2C / B2B" ✅ "Residential / Business"
+- Split unrelated questions glued into one bullet. Two ideas in one breath becomes two bullets.
+- One concrete example in parens beats three abstract qualifiers
+
+## Hypothesis-test questions: probe the idea, don't state it
+- When testing a hypothesis, ask a question that surfaces the answer. Do not state our finding and ask him to confirm it. The interviewee should reveal the state, not react to our conclusion.
+  - ❌ "We're seeing a 1:5.2 orchestrator-to-doer ratio against a 1:7-8 benchmark. Is the org too coordination-heavy?"
+  - ✅ "For every person writing code, how many coordinate the work around them?"
+- Do not dump our data into the question. A number we feed him caps the answer at "yes" or "no". Ask the question that makes him produce the number.
+  - ❌ "Our read is ~40-45% of capacity just runs existing platforms. Does that match?"
+  - ✅ "What share of engineering capacity goes to running the platforms versus building new?"
+- Probe whether a capability exists rather than asserting it is missing. A crisp existence probe is allowed here even if it reads as yes/no, because it opens the real answer ("we have X but not Y").
+  - ✅ "Is there a unified architecture map and vendor landscape for Residential IT?"
+  - ✅ "Is there a TCO view across the application portfolio?"
+- Keep them short. One probe per bullet. Cut the setup, the framing, and the "where are we wrong" tag. Let the question do the work.
+- No leading "fair, or overstated?" or "does that hold?" tails. They signal the answer we expect.

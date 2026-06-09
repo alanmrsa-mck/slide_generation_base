@@ -1,0 +1,33 @@
+---
+description: Significant outputs must be saved as markdown in a dated session folder
+alwaysApply: true
+---
+
+# Significant outputs → markdown in a session folder
+
+Whenever the user asks for an output (takeaways, synthesis, analysis, notes, drafts, summaries, etc.) and it is of **significant length**, deliver it as a markdown file saved in a session folder — in addition to showing it in chat.
+
+## What counts as "significant length"
+
+- More than a few bullets or a short paragraph.
+- Anything structured: multiple sections, buckets, tables, or numbered findings.
+- Anything the user is likely to reuse, share, or build on later.
+
+Trivial replies (a one-line answer, a quick confirmation, a couple of bullets) do **not** need a file. When unsure, lean toward saving.
+
+## Where to save
+
+Always write to the local workspace under a dated session folder:
+
+- `work/sessions/<YYYY-MM-DD-topic-slug>/<descriptive-name>.md`
+- Reuse an existing same-day session folder if one already fits the topic; otherwise create a new one.
+- Never save to SharePoint / OneDrive client folders (see `local-saves-only`).
+
+## Format
+
+- Markdown (`.md`), with a top-level `#` title and clear section headers.
+- Match existing session conventions in `work/sessions/`.
+
+## After saving
+
+State the saved path in chat so the user knows where it is.

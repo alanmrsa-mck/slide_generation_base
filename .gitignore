@@ -1,8 +1,6 @@
 # Raw source files (immutable, not for version control)
-knowledge/content/raw/*.pptx
-knowledge/content/raw/*.pdf
-knowledge/content/raw/*.docx
-knowledge/content/raw/*.txt
+knowledge/content/raw/*
+knowledge/style/examples/*
 
 # Generated output
 work/
